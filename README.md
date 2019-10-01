@@ -23,7 +23,7 @@ The server can be accessed locally at http://localhost:8080/.
 
 ## Deployment
 The API is deployed on Heroku. It can be accessed at the following url:  
-
+https://fleabay.herokuapp.com/
 
 ## Dependencies
 node v10.15.3    
