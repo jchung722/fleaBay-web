@@ -1,12 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="hello center mt-20">
+    <h1 class="text-6xl">{{ msg }}</h1>
+    <img class="object-center m-auto" src="../assets/construction.png">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   data () {
     return {
       msg: 'Welcome to fleaBay'
