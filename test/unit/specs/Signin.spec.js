@@ -1,9 +1,9 @@
 import { mount, shallowMount, RouterLinkStub } from '@vue/test-utils'
-import Signup from '@/components/Signup'
+import Signin from '@/components/Signin'
 
-describe('Signup.vue', () => {
+describe('Signin.vue', () => {
   it('should render errors on form', () => {
-    const wrapper = mount(Signup, {
+    const wrapper = mount(Signin, {
       stubs: { 'router-link': RouterLinkStub }
     })
     wrapper.setData({

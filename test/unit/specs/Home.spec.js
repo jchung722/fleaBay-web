@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import { mount, shallowMount, RouterLinkStub } from '@vue/test-utils'
 import Home from '@/components/Home'
 
