@@ -1,7 +1,7 @@
 <template>
-  <div class="hello">
-    <img src="../assets/construction.png">
-    <h1>{{ msg }}</h1>
+  <div class="hello center mt-20">
+    <h1 class="text-6xl">{{ msg }}</h1>
+    <img class="object-center m-auto" src="../assets/construction.png">
   </div>
 </template>
 
