@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Signup from '@/components/Signup'
 import Signin from '@/components/Signin'
+import AuctionForm from '@/components/AuctionForm'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/signin',
       name: 'Signin',
       component: Signin
+    },
+    {
+      path: '/auctions/new',
+      name: 'AuctionForm',
+      component: AuctionForm
     }
   ]
 })
