@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Signup from '@/components/Signup'
 import Signin from '@/components/Signin'
 import AuctionForm from '@/components/AuctionForm'
+import Auction from '@/components/Auction'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/auctions/new',
       name: 'AuctionForm',
       component: AuctionForm
+    },
+    {
+      path: '/auctions/:id',
+      name: 'Auction',
+      component: Auction
     }
   ]
 })

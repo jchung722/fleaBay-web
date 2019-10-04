@@ -65,6 +65,7 @@ export default {
                                              }
       })
         .then(response => {
+          this.$router.replace('/auctions/' + response.data.id)
         })
         .catch(error => this.setError(error, 'Error creating auction.'))
     }
