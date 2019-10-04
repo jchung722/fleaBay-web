@@ -12,6 +12,11 @@ export default {
   name: 'App',
   components: {
     Header
+  },
+  watch: {
+    $route (to, from) {
+      location.reload()
+    }
   }
 }
 </script>
