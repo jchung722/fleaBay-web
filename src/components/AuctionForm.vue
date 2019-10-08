@@ -11,7 +11,7 @@
         <label class="label px-5">Starting Bid</label>
         <input class="appearance-none border rounded w-11/12 my-2 mx-5 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                placeholder="0.99"
-               v-model="Auction.bid" />
+               v-model="Auction.starting_bid" />
         <label class="label px-5">Image URL</label>
         <input class="appearance-none border rounded w-11/12 my-2 mx-5 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                placeholder="img.cool.com"
@@ -44,7 +44,7 @@ export default {
   },
   created () {
     if (!localStorage.signedIn) {
-      this.$router.replace('/')
+      this.$router.replace('/signin')
     }
   },
   methods: {
@@ -58,7 +58,7 @@ export default {
       }
       this.$http.secured.post('/auctions', { auction:
                                              { name: this.Auction.name,
-                                               bid: this.Auction.bid,
+                                               starting_bid: this.Auction.starting_bid,
                                                picture: this.Auction.picture,
                                                end_date: new Date(this.Auction.end_date),
                                                description: this.Auction.description
