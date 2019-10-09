@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import fleaBayApi from '../services/fleaBayApi'
+
 export default {
   name: 'Auction',
   data () {
@@ -57,7 +59,7 @@ export default {
   },
   created () {
     const id = this.$route.params.id
-    this.$http.plain.get('/auctions/' + id)
+    fleaBayApi.getAuction(id)
       .then(response => {
         this.auction = response.data.auction
         this.owner = response.data.auction_owner
@@ -78,7 +80,7 @@ export default {
         return
       }
 
-      this.$http.secured.post('/auctions/' + id + '/bids', { bid: { amount: this.currentBid.amount } })
+      fleaBayApi.createBid(id, { bid: { amount: this.currentBid.amount } })
         .then(response => {
           window.location.reload()
         })

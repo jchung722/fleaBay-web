@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import fleaBayApi from '../services/fleaBayApi'
+
 export default {
   name: 'Header',
   created () {
@@ -27,7 +29,7 @@ export default {
       return localStorage.signedIn
     },
     signOut () {
-      this.$http.secured.delete('/signin')
+      fleaBayApi.signOut()
         .then(response => {
           delete localStorage.csrf
           delete localStorage.signedIn

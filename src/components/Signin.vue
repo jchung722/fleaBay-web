@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import fleaBayApi from '../services/fleaBayApi'
+
 export default {
   name: 'Signin',
   data () {
@@ -42,7 +44,7 @@ export default {
   },
   methods: {
     signin () {
-      this.$http.plain.post('/signin', { email: this.email, password: this.password })
+      fleaBayApi.signIn({ email: this.email, password: this.password })
         .then(response => this.signinSuccessful(response))
         .catch(error => this.signinFailed(error))
     },

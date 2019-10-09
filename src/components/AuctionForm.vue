@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import fleaBayApi from '../services/fleaBayApi'
+
 export default {
   name: 'AuctionForm',
   data () {
@@ -56,13 +58,13 @@ export default {
       if (!value) {
         return
       }
-      this.$http.secured.post('/auctions', { auction:
-                                             { name: this.Auction.name,
-                                               starting_bid: this.Auction.starting_bid,
-                                               picture: this.Auction.picture,
-                                               end_date: new Date(this.Auction.end_date),
-                                               description: this.Auction.description
-                                             }
+      fleaBayApi.createAuction({ auction:
+                                { name: this.Auction.name,
+                                  starting_bid: this.Auction.starting_bid,
+                                  picture: this.Auction.picture,
+                                  end_date: new Date(this.Auction.end_date),
+                                  description: this.Auction.description
+                                }
       })
         .then(response => {
           this.$router.replace('/auctions/' + response.data.id)
