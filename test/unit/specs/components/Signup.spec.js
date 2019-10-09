@@ -1,4 +1,4 @@
-import { mount, shallowMount, RouterLinkStub } from '@vue/test-utils'
+import { mount, RouterLinkStub } from '@vue/test-utils'
 import Signup from '@/components/Signup'
 
 describe('Signup.vue', () => {
