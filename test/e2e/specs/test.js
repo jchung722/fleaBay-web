@@ -6,8 +6,7 @@ module.exports = {
       .url(devServer)
       .waitForElementVisible('#app', 5000)
       .assert.elementPresent('.hello')
-      .assert.containsText('h1', 'Welcome to fleaBay')
-      .assert.elementCount('img', 1)
+      .assert.containsText('h1', 'fleaBay')
       .end()
   }
 }
