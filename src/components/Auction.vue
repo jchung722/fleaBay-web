@@ -28,16 +28,22 @@
         {{ auction.description }}
       </p>
     </div>
-
-    <form class="w-full max-w-sm items-center mx-auto" @submit.prevent="makeBid">
-      <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
-        <span class="font-bold">$</span>
-        <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Your Bid" v-model="currentBid.amount">
-        <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
-          Make Bid!
-        </button>
-      </div>
-    </form>
+    <template v-if="auctionEnded()">
+      <p class="text-red-500 text-2xl notice">Auction is over!</p>
+      <p class="text-blue-500 text-2xl winner" v-if="highestBidder">Winner is {{ highestBidder }}</p>
+      <p class="text-blue-500 text-2xl winner" v-else>No winner</p>
+    </template>
+    <template v-else>
+      <form class="w-full max-w-sm items-center mx-auto bid-form" @submit.prevent="makeBid">
+        <div class="flex items-center border-b border-b-2 border-teal-500 py-2">
+          <span class="font-bold">$</span>
+          <input class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Your Bid" v-model="currentBid.amount">
+          <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="submit">
+            Make Bid!
+          </button>
+        </div>
+      </form>
+    </template>
     <div class="text-red-500 errors" v-if="error">{{ error }}</div>
   </div>
 </template>
@@ -90,6 +96,9 @@ export default {
       if (!localStorage.signedIn) {
         this.$router.replace('/signin')
       }
+    },
+    auctionEnded () {
+      return new Date(this.auction.end_date) <= new Date()
     }
   }
 }
