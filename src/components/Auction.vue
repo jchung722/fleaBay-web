@@ -1,34 +1,34 @@
 <template>
   <div class="max-w-2xl m-auto mt-10 py-10 border items-left">
-    <h3 class="text-3xl mb-4">{{ auction.name }}</h3>
+    <h3 class="text-3xl mb-4 auction-name">{{ auction.name }}</h3>
     <div class="inline-block border-8">
-      <img :src="auction.picture" class="object-scale-down h-64 w-64 align-middle m-auto left-0">
+      <img :src="auction.picture" class="image object-scale-down h-64 w-64 align-middle m-auto left-0">
     </div>
     <div class="text-left align-top mx-24 my-8">
       <p>
         <span class="font-bold">Owner:</span>
-        {{ owner }}
+        <span class="owner">{{ owner }}</span>
       </p>
       <p>
         <span class="font-bold">Starting Bid:</span>
-        $ {{ auction.starting_bid }}
+        <span class="starting-bid">$ {{ formatPrice(auction.starting_bid) }}</span>
       </p>
-      <p>
+      <p v-if="highestBidder">
         <span class="font-bold">Highest Bid:</span>
-        $ {{ highestBid.amount }}
+        <span class="highest-bid">$ {{ formatPrice(highestBid.amount) }}</span>
         <span class="font-bold">by:</span>
-        {{ highestBidder }}
+        <span class="highest-bidder">{{ highestBidder }}</span>
       </p>
       <p>
         <span class="font-bold">End Date:</span>
-        {{ auction.end_date }}
+        <span class="end-date">{{ auction.end_date }}</span>
       </p>
       <p>
         <span class="font-bold">Description:</span>
-        {{ auction.description }}
+        <span class="description">{{ auction.description }}</span>
       </p>
     </div>
-    <template v-if="auctionEnded()">
+    <template v-if="isAuctionOver()">
       <p class="text-red-500 text-2xl notice">Auction is over!</p>
       <p class="text-blue-500 text-2xl winner" v-if="highestBidder">Winner is {{ highestBidder }}</p>
       <p class="text-blue-500 text-2xl winner" v-else>No winner</p>
@@ -69,7 +69,7 @@ export default {
       .then(response => {
         this.auction = response.data.auction
         this.owner = response.data.auction_owner
-        this.highestBid = response.data.highest_bid || { amount: this.auction.starting_bid }
+        this.highestBid = response.data.highest_bid || []
         this.highestBidder = response.data.highest_bidder
       })
       .catch(error => this.setError(error, 'Error retrieving auction.'))
@@ -97,8 +97,11 @@ export default {
         this.$router.replace('/signin')
       }
     },
-    auctionEnded () {
+    isAuctionOver () {
       return new Date(this.auction.end_date) <= new Date()
+    },
+    formatPrice(price) {
+        return (price/1).toFixed(2)
     }
   }
 }
