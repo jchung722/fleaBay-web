@@ -58,7 +58,7 @@ describe('DELETE user sign in', () => {
     expect(response.status).toEqual(204)
   })
 
-  it('makes axios post request with correct endpoint', async () => {
+  it('makes axios delete request with correct endpoint', async () => {
     expect(fakeAxios.delete).toHaveBeenCalledWith(
       '/signin'
     )
@@ -104,7 +104,7 @@ describe('GET auction', () => {
     expect(response.data).toEqual({ name: 'item', starting_bid: 1, end_date: Date.today })
   })
 
-  it('makes axios post request with correct endpoint', async () => {
+  it('makes axios get request with correct endpoint', async () => {
     expect(fakeAxios.get).toHaveBeenCalledWith(
       '/auctions/1'
     )
@@ -130,6 +130,26 @@ describe('POST bid', () => {
     expect(fakeAxios.post).toHaveBeenCalledWith(
       '/auctions/2/bids',
       { amount: 10 }
+    )
+  })
+})
+
+describe('GET auctions', () => {
+  it('returns all auctions', async () => {
+    fakeAxios.get.mockImplementation(() =>
+      Promise.resolve({
+        data: [ { name: 'auction1' }, { name: 'auction2' }, { name: 'auction3' }]
+      })
+    )
+
+    const response = await fleaBayApi.getAllAuctions();
+
+    expect(response.data).toEqual([ { name: 'auction1' }, { name: 'auction2' }, { name: 'auction3' }])
+  })
+
+  it('makes axios get request with correct endpoint', async () => {
+    expect(fakeAxios.get).toHaveBeenCalledWith(
+      '/auctions'
     )
   })
 })
