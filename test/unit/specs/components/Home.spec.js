@@ -2,11 +2,13 @@ import { mount, RouterLinkStub } from '@vue/test-utils'
 import Home from '@/components/Home'
 
 describe('Home.vue', () => {
-  it('should render correct contents', () => {
+  it('router link directs to auction form path', () => {
     const wrapper = mount(Home, {
       stubs: { 'router-link': RouterLinkStub }
     })
+    const auctionFormPath = '/auctions/new'
+    const routerLink = wrapper.find(RouterLinkStub)
 
-    expect(wrapper.find('.hello h1').text()).toEqual('Welcome to fleaBay')
+    expect(routerLink.props().to).toBe(auctionFormPath)
   })
 })

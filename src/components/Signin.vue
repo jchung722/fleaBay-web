@@ -2,7 +2,7 @@
   <div class="max-w-sm m-auto my-8">
     <div class="border p-10 border-grey-light shadow rounded">
       <h3 class="text-2xl mb-6 text-grey-darkest">Sign In</h3>
-      <form @submit.prevent="signin">
+      <form @submit.prevent="signIn">
 
         <div class="mb-6">
           <label for="email" class="label">E-mail Address</label>
@@ -43,7 +43,7 @@ export default {
     this.checkSignedIn()
   },
   methods: {
-    signin () {
+    signIn () {
       fleaBayApi.signIn({ email: this.email, password: this.password })
         .then(response => this.signinSuccessful(response))
         .catch(error => this.signinFailed(error))
