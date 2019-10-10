@@ -100,8 +100,8 @@ export default {
     isAuctionOver () {
       return new Date(this.auction.end_date) <= new Date()
     },
-    formatPrice(price) {
-        return (price/1).toFixed(2)
+    formatPrice (price) {
+      return (price / 1).toFixed(2)
     }
   }
 }
