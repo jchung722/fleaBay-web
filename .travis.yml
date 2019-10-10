@@ -10,10 +10,3 @@ cache:
   - node_modules
 script:
   - npm run unit
-deploy:
-  provider: heroku
-  api_key:
-    secure: HD7HpM0+IIMLwJkXmNjVzUK+UGr3ApDdJpJ7Ex/PT6zxdBcqcZvhU0Wt+yIWBUEhPXML9pDtlIFiHJONo+6bEJ46qs6WIGic4E9zcPpdSjqjAGBWiMB/CAfOrD6S5Wp9vSVHU1HpaSLHXDQmoZNYFYGv6SD8xVEfUsD1aqHDZp5Gq08NGhzIVswFQ2i+7m9UE11ktMmcq8B9OFshzZaE0W71VDBWHMTscWIyg024E4hz5f/PYiTu/uLHTYKXK2XVR0+zIEfp+urltjKnAk71mqGiYPz1bdTN1Xr9d+8siUEpTxQAe5RnGyspQA9eHrT+4uA+LJgh2ryV2QaLamxSGPw8CzTErH5x9WvpyuJa7K6wmXpTnIBpGZrjEkIKokgN11c+Zc1axqlqkrkgEUlvDyCtoo5XO6P1Q4XHtQ13RXFOB8Q9XyYE8WzNG3byl7A3NAa+G4P53TWEF2k5ucEJxlFMk0OxdZiECxTMwrxTKURc2hrWEAivhzHh382DKKo04zOvbvUfO9wdcDAQyv4ZD7LIlmnvb+ANQCTGWNWTxaT8KQLTxZx/QUwKj9Kg/bfE8L1BW1SIf/VqMCx6ex1bURxATUlCcu4IOCmbQcqYb2WXENtIxdJAN099tUHfCYuuBN019n2uHUcO3O+dPSCueRqv57Ew5HrQB4/5tAP0ioA=
-  app: fleabay
-    on:
-      repo: jchung722/fleabay-web
