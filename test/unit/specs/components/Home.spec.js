@@ -36,4 +36,14 @@ describe('Home.vue', () => {
   it('returns picture url if object has one', () => {
     expect(wrapper.vm.checkPicture({ picture: 'image url' })).toEqual('image url')
   })
+
+  it('returns the highest bid amount of auction if it exists', () => {
+    const auction = { starting_bid: 5, highest_bid: { amount: 7 } }
+    expect(wrapper.vm.checkBid(auction)).toEqual(7)
+  })
+
+  it('returns the starting bid amount of auction if highest bid does not exist', () => {
+    const auction = { starting_bid: 5 }
+    expect(wrapper.vm.checkBid(auction)).toEqual(5)
+  })
 })

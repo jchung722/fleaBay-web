@@ -14,7 +14,7 @@
       v-bind:auctionId="auction.id"
       v-bind:name="auction.name"
       v-bind:imageUrl="checkPicture(auction)"
-      v-bind:bid="auction.starting_bid"
+      v-bind:bid="checkBid(auction)"
       v-bind:endDate="auction.end_date"
     ></AuctionCard>
   </div>
@@ -39,6 +39,7 @@ export default {
     fleaBayApi.getAllAuctions()
       .then(response => {
         this.auctions = response.data
+        console.log(this.auctions[0].highest_bid.amount)
       })
       .catch(error => this.setError(error, 'Error retrieving auction.'))
   },
@@ -49,6 +50,9 @@ export default {
     checkPicture (auction) {
       const placeholderUrl = 'https://static.thenounproject.com/png/1174579-200.png'
       return auction.picture || placeholderUrl
+    },
+    checkBid (auction) {
+      return (auction.highest_bid && auction.highest_bid.amount) || auction.starting_bid
     }
   }
 }
