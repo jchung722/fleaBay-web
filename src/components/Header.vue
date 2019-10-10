@@ -2,7 +2,7 @@
   <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
     <div class="w-full inline-block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
-        <a href="/" class="font-semibold text-xl text-white tracking-tight"><h1>fleaBay</h1></a>
+        <a href="/" class="font-semibold text-3xl text-white tracking-tight"><h1>fleaBay</h1></a>
       </div>
       <div>
         <router-link to="/signin" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 signin" v-if="!isSignedIn()">Sign in</router-link>
