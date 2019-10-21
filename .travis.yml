@@ -9,4 +9,11 @@ cache:
   directories:
   - node_modules
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: qWJLeInPBIH2Z3RWs4GmeORvHdjs5iz5L1mo3BeGtZgnbXBiQGGeIPL6BwXGtITLeQGzcW/Qu1g5fB9Mxm2helvbzX8o+O50dAB5h2+LuXCQWdEdoSeoOpVIpeAWMNmP2laTiwM8w0TEtneVN4EGVDPjP6QpY3cHwxsV6o6gWR0eE88URFk0RGaXeExVR4qlJuWTSN8QpR+hmkBMLOwh4gM5IN60JvUJsssgHzFEKfVCCywYtHPf0dH4BxItQ72uypbtBbSaOqK33lRSGkbagvkNODgKfAELo0A8ZRZBRQaneWlGapz8eRvPHcee6+c8uaJTPueyRuBbn60GDM/nF8byiYuzDhYOluG1zt8+WQPlSOojjAf4T1RXqym9Agjz220Nx2O7KG6Zpcg8+i5VMOvkqxLnqqd0CZnkoaeYuLg7ycyG+6tFOyRAX18qofwcEfwLVmRaboWFroKDgQ2OaT6PL7W+W6I9JNQjasuv6IC/FHrOZXnVxFJbeHipiL/Uynzc5EkF1IFRdBI1vDiFp3RGxjI4VSpXUo8WVU55SU3P7bKWOSXFMkrTx5brbBzMuiALVHe1ikptsNNzi6PAkV8alJUqpUNITjnoBTWTyBwFgnwgC0LVl7ImACzRtNi8XweCCYitkUeSGM1agoFGbta21v711IANyoAJjiqXxLY=
+  app: fleabay
+  on:
+    repo: jchung722/fleaBay-web
