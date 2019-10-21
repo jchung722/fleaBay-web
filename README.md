@@ -11,10 +11,6 @@ To install all dependencies, enter the following in the command line:
 ## Running Tests
 Enter the following command to run all tests:   
 ```$ npm test```  
-unit tests:  
-```$ npm run unit```  
-e2e tests:  
-```$ npm run e2e```
 ## Running the Program
 To run the server locally, enter the following command:   
 ```$ npm run dev```
