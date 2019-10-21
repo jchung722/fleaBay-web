@@ -3,6 +3,10 @@
 
 **A web application for a flea market ebay clone built with Vue.js**
 
+## Dependencies
+node v10.15.3    
+npm 6.4.1  
+vue 2.5.2
 
 ## Setup/Installation
 To install all dependencies, enter the following in the command line:  
@@ -20,8 +24,3 @@ The server can be accessed locally at http://localhost:8080/.
 ## Deployment
 The API is deployed on Heroku. It can be accessed at the following url:  
 https://fleabay.herokuapp.com/
-
-## Dependencies
-node v10.15.3    
-npm 6.4.1  
-vue 2.5.2
