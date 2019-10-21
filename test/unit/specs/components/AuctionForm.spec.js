@@ -1,4 +1,4 @@
-import { mount, RouterLinkStub } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import AuctionForm from '@/components/AuctionForm'
 
 let wrapper
@@ -7,7 +7,7 @@ beforeEach(() => {
   wrapper = mount(AuctionForm, {
     mocks: {
       $router: {
-        replace: jest.fn(),
+        replace: jest.fn()
       }
     }
   })
@@ -21,7 +21,7 @@ describe('AuctionForm.vue', () => {
   it('should render errors on form', () => {
     wrapper.setData({
       error: 'TEST ERROR'
-    });
+    })
 
     expect(wrapper.find('.errors').text()).toEqual('TEST ERROR')
   })
@@ -31,11 +31,11 @@ describe('AuctionForm.vue', () => {
   })
 
   it('calls createAuction when clicking submit button', () => {
-    wrapper.vm.createAuction = jest.fn();
+    wrapper.vm.createAuction = jest.fn()
     const button = wrapper.find('[type="submit"]')
-    
+
     button.trigger('submit')
 
-    expect(wrapper.vm.createAuction).toBeCalled();
+    expect(wrapper.vm.createAuction).toBeCalled()
   })
 })

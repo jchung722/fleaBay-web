@@ -22,7 +22,7 @@ describe('Auction.vue', () => {
   it('renders errors on page', () => {
     wrapper.setData({
       error: 'TEST ERROR'
-    });
+    })
 
     expect(wrapper.find('.errors').text()).toEqual('TEST ERROR')
   })
@@ -39,7 +39,7 @@ describe('Auction.vue', () => {
     wrapper.setMethods({ isAuctionOver: mockIsAuctionOver })
     wrapper.setData({
       highestBidder: 'ME'
-    });
+    })
 
     expect(wrapper.find('.winner').text()).toEqual('Winner is ME')
   })
@@ -60,7 +60,7 @@ describe('Auction.vue', () => {
 
   it('reformats prices to have two decimal places', () => {
     wrapper.setData({
-      auction: {starting_bid: 20 },
+      auction: { starting_bid: 20 },
       highestBidder: 'winner@gmail.com',
       highestBid: { amount: 10.5 }
     })
@@ -87,12 +87,14 @@ describe('Auction.vue', () => {
   it('displays auction attributes', () => {
     wrapper.setData({
       owner: 'owner@gmail.com',
-      auction: { name: 'item', 
-                 description: 'description', 
-                 starting_bid: 5, 
-                 end_date: 'date', 
-                 picture: 'image'}
-    });
+      auction: {
+        name: 'item',
+        description: 'description',
+        starting_bid: 5,
+        end_date: 'date',
+        picture: 'image'
+      }
+    })
 
     expect(wrapper.find('.auction-name').text()).toEqual('item')
     expect(wrapper.find('.description').text()).toEqual('description')
@@ -102,11 +104,11 @@ describe('Auction.vue', () => {
   })
 
   it('makes bid when button is clicked', () => {
-    wrapper.vm.makeBid = jest.fn();
+    wrapper.vm.makeBid = jest.fn()
     const bidButton = wrapper.find('button')
-    
+
     bidButton.trigger('submit')
 
-    expect(wrapper.vm.makeBid).toBeCalled();
+    expect(wrapper.vm.makeBid).toBeCalled()
   })
 })

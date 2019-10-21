@@ -24,7 +24,7 @@ describe('Home.vue', () => {
   it('renders errors on page', () => {
     wrapper.setData({
       error: 'TEST ERROR'
-    });
+    })
 
     expect(wrapper.find('.errors').text()).toEqual('TEST ERROR')
   })

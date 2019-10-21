@@ -1,5 +1,5 @@
-import fakeAxios from "axios"
-import fleaBayApi from "@/services/fleaBayApi"
+import fakeAxios from 'axios'
+import fleaBayApi from '@/services/fleaBayApi'
 
 describe('POST user sign up', () => {
   it('returns created status', async () => {
@@ -10,7 +10,7 @@ describe('POST user sign up', () => {
       })
     )
 
-    const response = await fleaBayApi.signUp({email: 'test@email.com', password: 'pw'});
+    const response = await fleaBayApi.signUp({email: 'test@email.com', password: 'pw'})
 
     expect(response.status).toEqual(201)
   })
@@ -31,7 +31,7 @@ describe('POST user sign in', () => {
       })
     )
 
-    const response = await fleaBayApi.signIn({email: 'test@email.com', password: 'pw'});
+    const response = await fleaBayApi.signIn({email: 'test@email.com', password: 'pw'})
 
     expect(response.data.csrf).toEqual('token')
   })
@@ -53,7 +53,7 @@ describe('DELETE user sign in', () => {
       })
     )
 
-    const response = await fleaBayApi.signOut();
+    const response = await fleaBayApi.signOut()
 
     expect(response.status).toEqual(204)
   })
@@ -73,12 +73,12 @@ describe('POST auction', () => {
         data: { name: 'item', starting_bid: 1, end_date: Date.today }
       })
     )
-    const expected_payload = { name: 'item', starting_bid: 1, end_date: Date.today }
+    const expectedPayload = { name: 'item', starting_bid: 1, end_date: Date.today }
 
-    const response = await fleaBayApi.createAuction(expected_payload);
+    const response = await fleaBayApi.createAuction(expectedPayload)
 
     expect(response.status).toEqual(201)
-    expect(response.data).toEqual(expected_payload)
+    expect(response.data).toEqual(expectedPayload)
   })
 
   it('makes axios post request with correct endpoint', async () => {
@@ -98,7 +98,7 @@ describe('GET auction', () => {
       })
     )
 
-    const response = await fleaBayApi.getAuction(1);
+    const response = await fleaBayApi.getAuction(1)
 
     expect(response.status).toEqual(200)
     expect(response.data).toEqual({ name: 'item', starting_bid: 1, end_date: Date.today })
@@ -120,7 +120,7 @@ describe('POST bid', () => {
       })
     )
 
-    const response = await fleaBayApi.createBid(2, { amount: 10 });
+    const response = await fleaBayApi.createBid(2, { amount: 10 })
 
     expect(response.status).toEqual(200)
     expect(response.data).toEqual({ amount: 10 })
@@ -138,13 +138,13 @@ describe('GET auctions', () => {
   it('returns all auctions', async () => {
     fakeAxios.get.mockImplementation(() =>
       Promise.resolve({
-        data: [ { name: 'auction1' }, { name: 'auction2' }, { name: 'auction3' }]
+        data: [ { name: 'auction1' }, { name: 'auction2' }, { name: 'auction3' } ]
       })
     )
 
-    const response = await fleaBayApi.getAllAuctions();
+    const response = await fleaBayApi.getAllAuctions()
 
-    expect(response.data).toEqual([ { name: 'auction1' }, { name: 'auction2' }, { name: 'auction3' }])
+    expect(response.data).toEqual([ { name: 'auction1' }, { name: 'auction2' }, { name: 'auction3' } ])
   })
 
   it('makes axios get request with correct endpoint', async () => {

@@ -35,11 +35,11 @@ describe('Header.vue', () => {
   it('calls signout method when user clicks the signout link', () => {
     const mockIsSignedIn = jest.fn(() => true)
     wrapper.setMethods({ isSignedIn: mockIsSignedIn })
-    wrapper.vm.signOut = jest.fn();
+    wrapper.vm.signOut = jest.fn()
     const signOutLink = wrapper.find('.signout')
-    
+
     signOutLink.trigger('click')
 
-    expect(wrapper.vm.signOut).toBeCalled();
+    expect(wrapper.vm.signOut).toBeCalled()
   })
 })
